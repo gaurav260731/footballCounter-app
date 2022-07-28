@@ -1,6 +1,6 @@
 import React, {useState} from 'react';
 import { View, StyleSheet, Alert} from 'react-native';
-import { TextInput, Button, Card } from 'react-native-paper';
+import { Button } from '@ui-kitten/components';
 import OTPTextView from 'react-native-otp-textinput';
 
 const styles = StyleSheet.create({
@@ -91,7 +91,7 @@ const Authentication = ({navigation}) => {
             /> */}
             <Button
               mode="contained"
-              onPress={() => navigation.navigate('Category')}
+              onPress={() => navigation.navigate('Follow Topics')}
             >Submit</Button>
           </View>
         </View>

@@ -1,6 +1,6 @@
 import React, { useState, useEffect } from 'react';
 import { StatusBar } from 'expo-status-bar';
-import { StyleSheet, Text, View } from 'react-native';
+import { StyleSheet, Text, View, Image } from 'react-native';
 import { AppBar } from "@react-native-material/core";
 import AppIntroSlider from 'react-native-app-intro-slider';
 import { Provider as PaperProvider } from 'react-native-paper';
@@ -12,6 +12,8 @@ import  Register  from './screens/Register';
 import Authentication from './screens/Authentication';
 import Category from './screens/Category';
 import Login from './screens/Login';
+import { ApplicationProvider } from '@ui-kitten/components';
+import * as eva from '@eva-design/eva';
 
 
 const Stack = createStackNavigator();
@@ -62,6 +64,7 @@ export default function App() {
     <>
     {showRealApp ? 
     <>
+    <ApplicationProvider {...eva} theme={eva.light}>
     <PaperProvider>
       {/* <AppBar title="Football Counter" style={{ width: '100%', margin: '120' }}/>
         <View style={styles.container}>
@@ -72,12 +75,25 @@ export default function App() {
             <Stack.Screen name="Login" component={Login} />
             <Stack.Screen name="Register" component={Register} />
             <Stack.Screen name="Authentication" component={Authentication} />
-            <Stack.Screen name="Home" component={Home} />
+            <Stack.Screen name="Home"
+            component={Home} 
+            options={{ 
+              title: <View>
+                {/* <View>
+                  <Text>Home</Text>
+                </View> */}
+                <View>
+                  <Image style={{ width: 250, height: 60 }} source = {require('./assets/football-counter.png')} resizeMode='contain'/> 
+                </View>
+              </View>
+            }}
+         />
             <Stack.Screen name="Details" component={Details} />
             <Stack.Screen name="Follow Topics" component={Category} />
           </Stack.Navigator>
         </NavigationContainer>
     </PaperProvider>
+    </ApplicationProvider>
     </>: 
     <AppIntroSlider renderItem={()=>{ _renderItem}} data={slides} onDone={()=> this._onDone}/>}
     </>

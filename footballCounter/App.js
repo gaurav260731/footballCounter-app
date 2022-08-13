@@ -14,6 +14,7 @@ import Category from './screens/Category';
 import Login from './screens/Login';
 import { ApplicationProvider } from '@ui-kitten/components';
 import * as eva from '@eva-design/eva';
+import { Appbar } from 'react-native-paper';
 
 
 const Stack = createStackNavigator();
@@ -64,27 +65,29 @@ export default function App() {
     <>
     {showRealApp ? 
     <>
-    <ApplicationProvider {...eva} theme={eva.light}>
+    <ApplicationProvider {...eva} theme={eva.light} style={{width: '100%'}}>
     <PaperProvider>
       {/* <AppBar title="Football Counter" style={{ width: '100%', margin: '120' }}/>
         <View style={styles.container}>
           <Register />
         </View>  */}
         <NavigationContainer>
-          <Stack.Navigator initialRouteName="Login">
+          <Stack.Navigator initialRouteName="Login" >
             <Stack.Screen name="Login" component={Login} />
             <Stack.Screen name="Register" component={Register} />
             <Stack.Screen name="Authentication" component={Authentication} />
             <Stack.Screen name="Home"
             component={Home} 
+            
             options={{ 
               title: <View>
                 {/* <View>
                   <Text>Home</Text>
                 </View> */}
-                <View>
+                <div style={{display: 'flex'}}>
                   <Image style={{ width: 250, height: 60 }} source = {require('./assets/football-counter.png')} resizeMode='contain'/> 
-                </View>
+                  {/* <Appbar.Action icon="bell" onPress={() => {}} style={styles.bellIcon}/> */}
+                </div>
               </View>
             }}
          />
@@ -108,4 +111,7 @@ const styles = StyleSheet.create({
     alignItems: 'center',
     justifyContent: 'center',
   },
+  bellIcon: {
+    alignItems: 'center'
+  }
 });

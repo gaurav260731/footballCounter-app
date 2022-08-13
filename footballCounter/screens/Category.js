@@ -29,13 +29,14 @@ const Category = ({navigation}) => {
                 )
                })
             }
-            <Button
-                style={styles.buttonStyle}
-                mode="contained" 
-                onPress={() => navigation.navigate('Home')}
-            >Done</Button>
         </View>
-           
+        <View>
+              <Button
+                  style={styles.buttonStyle}
+                  mode="contained" 
+                  onPress={() => navigation.navigate('Home')}
+              >Done</Button>
+            </View>
       </List.Section>
       </View>
     )

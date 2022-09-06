@@ -1,6 +1,17 @@
 import React from "react";
 import {View, StyleSheet, ScrollView, Image} from 'react-native';
-import { Avatar, Button, Card, Title, Paragraph, BottomNavigation, Text, Divider } from 'react-native-paper';
+import { Avatar, 
+  Button, 
+  Card, 
+  Title, 
+  Paragraph, 
+  BottomNavigation, 
+  Text, 
+  Divider, 
+  List, 
+  TextInput,
+  DataTable,
+  Checkbox } from 'react-native-paper';
 import { NavigationContainer } from '@react-navigation/native';
 import {
   Tabs,
@@ -13,15 +24,206 @@ import { useNavigation } from '@react-navigation/native';
 
 
 const LeftContent = props => <Avatar.Icon {...props} icon="folder" />
-const SearchRoute = () => <Text>Search</Text>;
-const CreateRoute =() => <Text>Create</Text>;
-const TournamentsRoute =() => <Text>Tournaments</Text>;
+const SearchRoute = () => 
+<ScrollView>
+      <TextInput
+        label="Search"
+        value=""
+      />  
+      <Tabs class="tabVal" style= {{backgroundColor: '#fff'}}>
+        <TabScreen label="All">
+        <View style={style.searchContainer}>
+          <br/>
+        <List.Item
+          title="Himanshu"
+          description="8.2M Followers"
+          left={props => <Avatar.Image size={40} source={require('../assets/football1.jpg')} />}
+          right={props => <Button mode="contained" style={style.buttonAction}>Follow</Button>}
+        />
+        <List.Item
+          title="Himanshu Patil"
+          description="5.7M Followers"
+          left={props => <Avatar.Image size={40} source={require('../assets/football2.jpg')} />}
+          right={props => <Button mode="contained" style={style.buttonAction}>Follow</Button>}
+        />
+        <List.Item
+          title="Himanshu"
+          description="348.3K Follower"
+          left={props => <Avatar.Image size={40} source={require('../assets/football3.jpg')} />}
+          right={props => <Button mode="contained" style={style.buttonAction}>Follow</Button>}
+        />
+      </View>
+        </TabScreen>
+        <TabScreen label="Article">
+          <View style={style.searchContainer}>
+            <List.Item
+              title="Himanshu Patil's brace for ONGC sinks"
+              description="MFA Elite"
+              left={props => <Avatar.Image size={50} source={require('../assets/football1.jpg')} />}
+              right={props => <List.Icon icon="bookmark" />}
+            />
+            <List.Item
+              title="Himanshu Patil's brace for ONGC sinks"
+              description="MFA Elite"
+              left={props => <Avatar.Image size={50} source={require('../assets/football2.jpg')} />}
+              right={props => <List.Icon icon="bookmark-outline" />}
+            />
+            <List.Item
+              title="Himanshu Patil's brace for ONGC sinks"
+              description="MFA Elite"
+              left={props => <Avatar.Image size={50} source={require('../assets/football3.jpg')} />}
+              right={props => <List.Icon icon="bookmark" />}
+            />
+          </View>
+        </TabScreen>
+        <TabScreen label="Trials">
+          <View style={{ flex:1 }} />
+        </TabScreen>
+        <TabScreen label="Events">
+          <View style={{ flex:1 }} />
+        </TabScreen>
+        {/* <TabScreen label="Question">
+          <View style={{ flex:1 }} />
+        </TabScreen> */}
+        <TabScreen label="Fixture">
+          <View style={{ flex:1 }} />
+        </TabScreen>
+    </Tabs>
+  </ScrollView>
+;
+
+const CreateRoute =() => 
+<View style={style.createContainer}>
+  <List.Item
+    title="Post"
+    right={props => <List.Icon {...props} icon="post" />}
+  />
+  <List.Item
+    title="Trials"
+    right={props => <List.Icon {...props} icon="soccer-field" />}
+  />
+  <List.Item
+    title="Events"
+    right={props => <List.Icon {...props} icon="calendar" />}
+  />
+  <List.Item
+    title="Query"
+    right={props => <List.Icon {...props} icon="chat-question" />}
+  />
+  <List.Item
+    title="Academy"
+    right={props => <List.Icon {...props} icon="home-modern" />}
+  />
+  <List.Item
+    title="Club"
+    right={props => <List.Icon {...props} icon="home-city" />}
+  />
+  <List.Item
+    title="Player"
+    right={props => <List.Icon {...props} icon="human-handsdown" />}
+  />
+  <List.Item
+    title="Association"
+    right={props => <List.Icon {...props} icon="account-group" />}
+  />
+</View>;
+
+const TournamentsRoute = () => 
+<React.Fragment>
+<ScrollView>
+      <TextInput
+        label="Search"
+        value=""
+      />
+      <DataTable>
+        <DataTable.Header>
+            <DataTable.Title>
+              <span style={{color: 'red'}}>LIVE</span> Matches
+            </DataTable.Title>
+        </DataTable.Header>
+        <DataTable.Row>
+          <DataTable.Cell><span style={{color: 'green'}}>HT <span style={{textDecoration: 'underline'}}>45</span></span> </DataTable.Cell>
+          <DataTable.Cell><span style={{color: 'green'}}>HT <span style={{textDecoration: 'underline'}}>45</span></span> </DataTable.Cell>
+          <DataTable.Cell><span style={{color: 'green'}}>HT <span style={{textDecoration: 'underline'}}>45</span></span> </DataTable.Cell>
+        </DataTable.Row>
+        <DataTable.Row>
+          <DataTable.Cell>AI 0</DataTable.Cell>
+          <DataTable.Cell>AI 0</DataTable.Cell>
+          <DataTable.Cell>AI 0</DataTable.Cell>
+        </DataTable.Row>
+        <DataTable.Row>
+          <DataTable.Cell>ONGC 0</DataTable.Cell>
+          <DataTable.Cell>ONGC 0</DataTable.Cell>
+          <DataTable.Cell>ONGC 0</DataTable.Cell>
+        </DataTable.Row>
+      </DataTable>  
+      <Tabs class="tabVal" style={{backgroundColor: '#fff'}}>
+      <TabScreen label="MFA">
+          <Tabs class="tabVal" style= {{backgroundColor: '#fff'}}>
+            <TabScreen label="Matches">
+              <View>
+                <List.Section style={{backgroundColor: '#fff'}}>
+                  <List.Subheader>Fri, August 19 at 09:00 hrs</List.Subheader>
+                  {/* <View style={{display: 'flex'}}>
+                    <List.Icon icon="folder" /> 
+                    <Checkbox.Item label="Kenkre FC" status="unchecked"/>
+                  </View> */}
+                  
+                  <List.Item title="Kenkre FC" left={() => <List.Icon icon="soccer" />} />
+                  <List.Item title="Footie First" left={() => <List.Icon icon="soccer" />} />
+                  <List.Item title="Cooperage Stadium" left={() => <List.Icon icon="map-marker" />} />
+                </List.Section>
+                <List.Section style={{backgroundColor: '#fff'}}>
+                  <List.Subheader>Fri, August 19 at 09:00 hrs</List.Subheader>
+                  <List.Item title="Kenkre FC" left={() => <List.Icon icon="soccer" />} />
+                  <List.Item title="Footie First" left={() => <List.Icon icon="soccer" />} />
+                  <List.Item title="Cooperage Stadium" left={() => <List.Icon icon="map-marker" />} />
+                </List.Section>
+                <List.Section style={{backgroundColor: '#fff'}}>
+                  <List.Subheader>Fri, August 19 at 09:00 hrs</List.Subheader>
+                  <List.Item title="Kenkre FC" left={() => <List.Icon icon="soccer" />} />
+                  <List.Item title="Footie First" left={() => <List.Icon icon="soccer" />} />
+                  <List.Item title="Cooperage Stadium" left={() => <List.Icon icon="map-marker" />} />
+                </List.Section>
+              </View>
+            </TabScreen>
+            <TabScreen label="News">
+              <View style={{ flex:1 }} />
+            </TabScreen>
+            <TabScreen label="Table">
+              <View style={{ flex:1 }} />
+            </TabScreen>
+            <TabScreen label="Stats">
+              <View style={{ flex:1 }} />
+            </TabScreen>
+            <TabScreen label="Players">
+              <View style={{ flex:1 }} />
+            </TabScreen>
+          </Tabs>
+        </TabScreen>
+        <TabScreen label="ISL">
+          <View style={{ flex:1 }} />
+        </TabScreen>
+        <TabScreen label="I-league">
+          <View style={{ flex:1 }} />
+        </TabScreen>
+        <TabScreen label="Santosh Trophy">
+          <View style={{ flex:1 }} />
+        </TabScreen>
+        <TabScreen label="Durand Cup">
+          <View style={{ flex:1 }} />
+        </TabScreen>
+      </Tabs>
+</ScrollView>
+  
+</React.Fragment>;
+ 
 const AccountsRoute =() => <Text>Accounts</Text>;
 
 const HomeDetailRoute = () => {
   const goTo = useTabNavigation();
   const index = useTabIndex(1);
-  
+
   const navigation = useNavigation();
 
   return (
@@ -215,6 +417,18 @@ const style = StyleSheet.create({
       marginTop: '-7%',
       fontSize: '13px',
       color: 'grey'
+    },
+    searchContainer: {
+      backgroundColor: '#fff',
+      padding: '10px'
+    },
+    createContainer: {
+      backgroundColor: '#fff'
+    },
+    buttonAction : {
+      height: '35px',
+      backgroundColor: 'rgb(51, 102, 255)',
+      borderColor: 'rgb(51, 102, 255)'
     }
   });
 

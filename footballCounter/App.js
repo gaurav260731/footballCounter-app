@@ -14,52 +14,63 @@ import Category from './screens/Category';
 import Login from './screens/Login';
 import { ApplicationProvider } from '@ui-kitten/components';
 import * as eva from '@eva-design/eva';
+import Icon from 'react-native-vector-icons/Ionicons';
 import { Appbar } from 'react-native-paper';
 
 
 const Stack = createStackNavigator();
 
-const slides = [
-  {
-    key: 1,
-    title: 'Title 1',
-    text: 'Description.\nSay something cool',
-    image: require('./assets/football1.jpg'),
-    backgroundColor: '#59b2ab',
-  },
-  {
-    key: 2,
-    title: 'Title 2',
-    text: 'Other cool stuff',
-    image: require('./assets/football2.jpg'),
-    backgroundColor: '#febe29',
-  },
-  {
-    key: 3,
-    title: 'Rocket guy',
-    text: 'I\'m already out of descriptions\n\nLorem ipsum bla bla bla',
-    image: require('./assets/football3.jpg'),
-    backgroundColor: '#22bcb5',
-  }
-];
-
 export default function App() {
-  const [showRealApp, setshowRealApp] = useState(true);
+  const [showRealApp, setshowRealApp] = useState(false);
+
+  const _onDone = () => {
+    setshowRealApp(true);
+  }
+
+  const _onSkip = () => {
+    setshowRealApp(true);
+  };
 
   const _renderItem = ({ item }) => {
     return (
-      <View >
-        <Text >{item.title}</Text>
-        <Image source={item.image} />
-        <Text >{item.text}</Text>
+      <View
+        style={{
+          flex: 1,
+          backgroundColor: item.backgroundColor,
+          alignItems: 'center',
+          justifyContent: 'space-around',
+          paddingBottom: 100,
+          color: '#000'
+        }}>
+        <Image style={styles.introImageStyle} source={item.image} />
+        <Text style={styles.introTextStyle}>{item.text}</Text>
       </View>
     );
   }
-  const _onDone = () => {
-    // User finished the introduction. Show real app through
-    // navigation or simply by controlling state
-    setshowRealApp(true);
-  }
+
+  const _renderDoneButton = () => {
+    return (
+      <View style={{color: 'blue', fontSize: '20px'}}>
+        Get Started
+      </View>
+    );
+  };
+
+  const _renderNextButton = () => {
+    return (
+      <View style={{color: 'blue', fontSize: '20px'}}>
+        Next
+      </View>
+    );
+  };
+
+  const _renderSkipButton = () => {
+    return (
+      <View style={{color: 'blue', fontSize: '20px'}}>
+        Skip
+      </View>
+    );
+  };
 
   return (
     <>
@@ -98,7 +109,18 @@ export default function App() {
     </PaperProvider>
     </ApplicationProvider>
     </>: 
-    <AppIntroSlider renderItem={()=>{ _renderItem}} data={slides} onDone={()=> this._onDone}/>}
+    <AppIntroSlider 
+      renderItem={_renderItem} 
+      data={slides} 
+      onDone={_onDone}
+      showSkipButton={true}
+      onSkip={_onSkip}
+      dotStyle={{backgroundColor:'#000'}}
+      activeDotStyle={{backgroundColor:'blue'}}
+      renderDoneButton={_renderDoneButton}
+      renderNextButton={_renderNextButton}
+      renderSkipButton={_renderSkipButton}
+    />}
     </>
   );
 }
@@ -113,5 +135,56 @@ const styles = StyleSheet.create({
   },
   bellIcon: {
     alignItems: 'center'
-  }
+  },
+  introImageStyle: {
+    width: '100%',
+    height: '700px',
+  },
+  introTextStyle: {
+    fontSize: 18,
+    color: 'black',
+    textAlign: 'center',
+    padding: 10,
+  },
+  introTitleStyle: {
+    fontSize: 25,
+    color: 'black',
+    textAlign: 'center',
+    fontWeight: 'bold',
+    padding: 10
+  },
+  buttonCircle: {
+    width: 40,
+    height: 40,
+    backgroundColor: 'rgba(0, 0, 0, .2)',
+    borderRadius: 20,
+    justifyContent: 'center',
+    alignItems: 'center',
+  },
 });
+
+const slides = [
+  {
+    key: 's1',
+    text: 'Discover and dont miss all the content you need every day',
+    image: {
+      uri: require('./assets/football1.jpg'),
+    }
+  },
+  {
+    key: 's3',
+    text: 'Follow your Favourite League, Tournament, Club and Players',
+    image: {
+      uri:
+      require('./assets/football2.jpg'),
+    }
+  },
+  {
+    key: 's4',
+    text: 'Best Deals on all our services',
+    image: {
+      uri:
+      require('./assets/football3.jpg'),
+    }
+  }
+];

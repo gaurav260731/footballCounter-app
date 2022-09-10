@@ -218,7 +218,10 @@ const TournamentsRoute = () =>
   
 </React.Fragment>;
  
-const AccountsRoute =() => <Text>Accounts</Text>;
+const AccountsRoute =() => 
+<React.Fragment>
+  <Avatar.Image size={24} source={require('../assets/football1.jpg')} />
+</React.Fragment>;
 
 const HomeDetailRoute = () => {
   const goTo = useTabNavigation();

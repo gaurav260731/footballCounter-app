@@ -88,7 +88,7 @@ const SearchRoute = () =>
         <TabScreen label="Fixture">
           <View style={{ flex:1 }} />
         </TabScreen>
-    </Tabs>
+      </Tabs>
   </ScrollView>
 ;
 
@@ -220,7 +220,80 @@ const TournamentsRoute = () =>
  
 const AccountsRoute =() => 
 <React.Fragment>
-  <Avatar.Image size={24} source={require('../assets/football1.jpg')} />
+  <div style={{padding: '10px', display: 'flex'}}>
+    <Avatar.Image size={84} source={require('../assets/football1.jpg')} />
+    <View style={{width: '80%', padding: '2%', textAlign: 'left'}}>
+      <span style={{fontSize: '20px', fontWeight:'400'}}>Amit Yadav</span>
+      <span style={{fontSize: '16px', marginTop: '10px'}}>Founder & Chief of growth @Kodewise Technologies</span>
+    </View>
+  </div>
+  <DataTable.Row>
+       <DataTable.Cell><span style={{fontSize: '21px'}}>53</span> Posts</DataTable.Cell>
+       <DataTable.Cell><span style={{fontSize: '21px'}}>37</span> Followers</DataTable.Cell>
+       <DataTable.Cell><span style={{fontSize: '21px'}}>46</span> Following</DataTable.Cell>
+   </DataTable.Row>
+  <Tabs class="tabVal" style= {{backgroundColor: '#fff'}}>
+        <TabScreen label="My Posts">
+        <View>
+        <Card style={{padding: '10px'}}>
+          <div style={{display: 'flex', flexDirection:'row-reverse'}}>
+            <Avatar.Image size={60} source={require('../assets/football1.jpg')} />
+            <View style={{width: '85%', padding: '2%', textAlign: 'left'}}>
+              <span style={{color: 'grey'}}>Santosh Trophy</span>
+              <span>Hero 75th NFC for Santosh Trophy to be held in Malappuram from April 16...</span>
+              <span style={{color:'blueviolet'}}>more..</span>
+              <span style={{display: 'flex'}}>
+                <Appbar.Action icon="thumb-up-outline" onPress={() => {}} />
+                <Appbar.Action icon="comment-outline" onPress={() => {}} />
+              </span>
+              <span style={{fontSize: '13px', color: 'grey'}}>Liked by <b>Amit</b> and <b>1000 others</b></span> 
+            </View>
+          </div>
+        </Card>
+
+        <Card style={{padding: '10px'}}>
+          <div style={{display: 'flex', flexDirection:'row-reverse'}}>
+            <Avatar.Image size={60} source={require('../assets/football2.jpg')} />
+            <View style={{width: '85%', padding: '2%', textAlign: 'left'}}>
+              <span style={{color: 'grey'}}>Santosh Trophy</span>
+              <span>Hero 75th NFC for Santosh Trophy to be held in Malappuram from April 16...</span>
+              <span style={{color:'blueviolet'}}>more..</span>
+              <span style={{display: 'flex'}}>
+                <Appbar.Action icon="thumb-up-outline" onPress={() => {}} style={{fontSize:'12px'}}/>
+                <Appbar.Action icon="comment-outline" onPress={() => {}} style={{fontSize:'12px'}}/>
+              </span>
+              <span style={{fontSize: '13px', color: 'grey'}}>Liked by <b>Amit</b> and <b>1000 others</b></span> 
+            </View>
+          </div>
+        </Card>
+        
+        <Card style={{padding: '10px'}}>
+          <div style={{display: 'flex', flexDirection:'row-reverse'}}>
+            <Avatar.Image size={60} source={require('../assets/football3.jpg')} />
+            <View style={{width: '85%', padding: '2%', textAlign: 'left'}}>
+              <span style={{color: 'grey'}}>Santosh Trophy</span>
+              <span>Hero 75th NFC for Santosh Trophy to be held in Malappuram from April 16...</span>
+              <span style={{color:'blueviolet'}}>more..</span>
+              <span style={{display: 'flex'}}>
+                <Appbar.Action icon="thumb-up-outline" onPress={() => {}} />
+                <Appbar.Action icon="comment-outline" onPress={() => {}} />
+              </span>
+              <span style={{fontSize: '13px', color: 'grey'}}>Liked by <b>Amit</b> and <b>1000 others</b></span> 
+            </View>
+          </div>
+        </Card>
+      </View>
+        </TabScreen>
+        <TabScreen label="Activity">
+          <View style={{ flex:1 }} />
+        </TabScreen>
+        <TabScreen label="Saved">
+          <View style={{ flex:1 }} />
+        </TabScreen>
+        <TabScreen label="Insight">
+          <View style={{ flex:1 }} />
+        </TabScreen>
+      </Tabs>
 </React.Fragment>;
 
 const HomeDetailRoute = () => {
@@ -269,7 +342,7 @@ const HomeDetailRoute = () => {
                 <Card.Actions>  
                   <Button onPress={() => navigation.navigate('Details')}>read more..</Button>
                 </Card.Actions>
-            </Card> 
+             </Card> 
 
             <Card style={style.cardContainer}>
                 <div style={{display: 'flex', alignItems: 'center'}}>
@@ -355,7 +428,7 @@ const HomeDetailRoute = () => {
         <TabScreen label="Fixture">
           <View style={{ flex:1 }} />
         </TabScreen>
-    </Tabs>
+     </Tabs>
         
         </ScrollView>
   )

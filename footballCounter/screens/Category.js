@@ -3,10 +3,9 @@ import { Chip, List } from 'react-native-paper';
 import {View, Text, StyleSheet, Alert} from 'react-native';
 import { Button } from '@ui-kitten/components';
 
-const dataSource = [
+const DataSource = [
     "IC League", "U-15 League", "Football League", "I-League U-18", "Women's League", "Men's League", "Super League",
-    "Santosh Trophy", "Football Events", "Colaba Super League", "SSE Champions League", "IFS League", "Local Football", "Borivalli Premier League"
-    , "Local Football"
+    "Santosh Trophy"
 ];
 
 
@@ -17,7 +16,7 @@ const Category = ({navigation}) => {
         <List.Section title="">
         <View style={styles.row}>
             {
-                dataSource.map((item, index) => {
+                DataSource.map((item, index) => {
                 return (
                 <Chip
                     key={index}

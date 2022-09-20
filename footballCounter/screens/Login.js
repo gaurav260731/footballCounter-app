@@ -64,8 +64,6 @@ const style = StyleSheet.create({
       image: {
         width: 90,
         height: 90,
-        backgroundSize: 'contain',
-        backgroundPositionX: 'left',
         marginLeft: 10
         
       },

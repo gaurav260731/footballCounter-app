@@ -29,7 +29,7 @@ const Category = ({navigation}) => {
                })
             }
         </View>
-        <View>
+        <View style={styles.doneButtonStyle}>
           <Button
               style={styles.buttonStyle}
               mode="contained" 
@@ -55,10 +55,12 @@ const styles = StyleSheet.create({
       margin: 4,
     },
     buttonStyle: {
-        marginTop: 20,
-        margin: 'auto',
-        width: '50%'
+    },
+    doneButtonStyle: {
+      margin: 20,
+      justifyContent: 'center'
     }
+
   });
 
 export default Category;

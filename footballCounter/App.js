@@ -31,7 +31,7 @@ export default function App() {
     setshowRealApp(true);
   };
 
-  const _renderItem = ({ item }) => {
+  const RenderItem = ({ item }) => {
     return (
       <View
         style={{
@@ -48,26 +48,26 @@ export default function App() {
     );
   }
 
-  const _renderDoneButton = () => {
+  const RenderDoneButton = () => {
     return (
       <View style={{color: 'blue', fontSize: '20px'}}>
-        Get Started
+        <Text>Get Started</Text>
       </View>
     );
   };
 
-  const _renderNextButton = () => {
+  const RenderNextButton = () => {
     return (
       <View style={{color: 'blue', fontSize: '20px'}}>
-        Next
+        <Text>Next</Text>
       </View>
     );
   };
 
-  const _renderSkipButton = () => {
+  const RenderSkipButton = () => {
     return (
       <View style={{color: 'blue', fontSize: '20px'}}>
-        Skip
+        <Text>Skip</Text>
       </View>
     );
   };
@@ -95,10 +95,10 @@ export default function App() {
                 {/* <View>
                   <Text>Home</Text>
                 </View> */}
-                <div style={{display: 'flex'}}>
+                <View style={{display: 'flex'}}>
                   <Image style={{ width: 250, height: 60 }} source = {require('./assets/football-counter.png')} resizeMode='contain'/> 
                   {/* <Appbar.Action icon="bell" onPress={() => {}} style={styles.bellIcon}/> */}
-                </div>
+                </View>
               </View>
             }}
          />
@@ -110,16 +110,16 @@ export default function App() {
     </ApplicationProvider>
     </>: 
     <AppIntroSlider 
-      renderItem={_renderItem} 
+      renderItem={RenderItem} 
       data={slides} 
       onDone={_onDone}
       showSkipButton={true}
       onSkip={_onSkip}
       dotStyle={{backgroundColor:'#000'}}
       activeDotStyle={{backgroundColor:'blue'}}
-      renderDoneButton={_renderDoneButton}
-      renderNextButton={_renderNextButton}
-      renderSkipButton={_renderSkipButton}
+      renderDoneButton={RenderDoneButton}
+      renderNextButton={RenderNextButton}
+      renderSkipButton={RenderSkipButton}
     />}
     </>
   );
@@ -138,7 +138,7 @@ const styles = StyleSheet.create({
   },
   introImageStyle: {
     width: '100%',
-    height: '700px',
+    height: 700,
   },
   introTextStyle: {
     fontSize: 18,
@@ -163,28 +163,23 @@ const styles = StyleSheet.create({
   },
 });
 
+const imageUrl = require('./assets/football1.jpg')
+
+
 const slides = [
   {
     key: 's1',
     text: 'Discover and dont miss all the content you need every day',
-    image: {
-      uri: require('./assets/football1.jpg'),
-    }
+    image: require('./assets/football1.jpg')
   },
   {
     key: 's3',
     text: 'Follow your Favourite League, Tournament, Club and Players',
-    image: {
-      uri:
-      require('./assets/football2.jpg'),
-    }
+    image: require('./assets/football2.jpg')
   },
   {
     key: 's4',
     text: 'Best Deals on all our services',
-    image: {
-      uri:
-      require('./assets/football3.jpg'),
-    }
+    image: require('./assets/football3.jpg')
   }
 ];
